@@ -14,8 +14,8 @@ class Pessoa:
         self.cpf = db.Column(db.String(100),Nullable)
         self.email = db.Column(db.String(100),Nullable)
         self.telefone = db.Column(db.Integer(100), Nullable)
-
-db.create_all()
+with app.app_context:
+    db.create_all()
 @app.route('/')
 def formulario():
     return render_template("index.html")
